@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Glow | Лазерная эпиляция в Москве</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #2c2c2c;
+            --text-muted: #7a7a7a;
+            --accent: #b8956a; /* Тёплый золотисто-бежевый */
+            --accent-hover: #a07f56;
+            --border: #e8e4df;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- ШАПКА --- */
+        .header {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(253, 252, 251, 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 20px; max-width: 1100px; margin: 0 auto;
+        }
+        .logo {
+            font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700;
+            color: var(--text); text-decoration: none; letter-spacing: 1px;
+        }
+        .logo span { color: var(--accent); }
+        .nav { display: flex; align-items: center; gap: 25px; }
+        .nav a {
+            color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.3s; font-weight: 500;
+        }
+        .nav a:hover { color: var(--accent); }
+        .phone-top {
+            color: var(--text); font-weight: 600; text-decoration: none;
+            font-size: 0.95rem; white-space: nowrap;
+        }
+        .phone-top:hover { color: var(--accent); }
+
+        /* --- ГЛАВНЫЙ ЭКРАН --- */
+        .hero {
+            height: 100vh; min-height: 650px;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative; overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat fixed;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(253,252,251,0.88) 0%, rgba(253,252,251,0.75) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 1; max-width: 750px; padding: 0 20px;
+            animation: fadeUp 1.2s ease;
+        }
+        .hero-badge {
+            display: inline-block; background: var(--accent); color: #fff;
+            padding: 6px 18px; border-radius: 30px; font-size: 0.8rem;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px;
+        }
+        .hero h1 {
+            font-family: var(--font-heading); font-size: 4rem; line-height: 1.15;
+            margin-bottom: 20px; color: var(--text);
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-muted);
+            margin-bottom: 35px; max-width: 550px; margin-left: auto; margin-right: auto;
+        }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- КНОПКИ --- */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 15px 32px; border-radius: 50px; font-weight: 600;
+            font-size: 0.95rem; text-decoration: none; transition: all 0.35s ease;
+            border: 2px solid transparent; cursor: pointer;
+        }
+        .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(184,149,106,0.35); }
+        .btn-outline { background: transparent; color: var(--text); border-color: var(--text); }
+        .btn-outline:hover { background: var(--text); color: var(--bg); transform: translateY(-3px); }
+        .btn-ghost { background: transparent; color: var(--accent); border-color: var(--accent); }
+        .btn-ghost:hover { background: var(--accent); color: #fff; transform: translateY(-3px); }
+
+        /* --- СЕКЦИИ --- */
+        .section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 {
+            font-family: var(--font-heading); font-size: 2.8rem; margin-bottom: 15px;
+        }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+        .section-alt { background: var(--surface); }
+
+        /* --- ПРЕИМУЩЕСТВА --- */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: var(--surface); padding: 40px 30px; border-radius: 20px;
+            border: 1px solid var(--border); text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+        .feature-icon {
+            width: 60px; height: 60px; border-radius: 50%; background: rgba(184,149,106,0.12);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 22px; font-size: 1.5rem; color: var(--accent);
+        }
+        .feature-card h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 10px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.92rem; }
+
+        /* --- УСЛУГИ И ЦЕНЫ --- */
+        .pricing-table {
+            width: 100%; border-collapse: collapse; background: var(--surface);
+            border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .pricing-table th, .pricing-table td {
+            padding: 20px 25px; text-align: left; border-bottom: 1px solid var(--border);
+        }
+        .pricing-table th {
+            background: var(--text); color: #fff; font-weight: 500;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .pricing-table tr:last-child td { border-bottom: none; }
+        .pricing-table tr:hover td { background: rgba(184,149,106,0.04); }
+        .price { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+        .pricing-note {
+            margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* --- ГАЛЕРЕЯ --- */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            border-radius: 16px; overflow: hidden; aspect-ratio: 4/3;
+            cursor: pointer; position: relative; background: #eee;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.06); }
+
+        /* --- СПЕЦИАЛИСТЫ --- */
+        .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .doctor-card {
+            background: var(--surface); border-radius: 20px; overflow: hidden;
+            border: 1px solid var(--border); text-align: center;
+            transition: transform 0.3s;
+        }
+        .doctor-card:hover { transform: translateY(-5px); }
+        .doctor-photo {
+            height: 280px; background: #f0ece7; display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .doctor-info { padding: 25px 20px; }
+        .doctor-info h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 5px; }
+        .doctor-info .role { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .doctor-info p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- КОНТАКТЫ И КАРТА --- */
+        .contacts-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+        }
+        .contact-block h3 {
+            font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 20px;
+        }
+        .contact-item {
+            display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;
+        }
+        .contact-item i {
+            color: var(--accent); font-size: 1.1rem; width: 24px; text-align: center;
+            margin-top: 4px;
+        }
+        .contact-item a { color: var(--text); text-decoration: none; font-weight: 500; }
+        .contact-item a:hover { color: var(--accent); }
+        .contact-item .label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        .social-row { display: flex; gap: 12px; margin-top: 25px; }
+        .social-row a {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--surface); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text); font-size: 1.2rem; transition: all 0.3s;
+            text-decoration: none;
+        }
+        .social-row a:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-3px); }
+
+        .map-wrapper {
+            border-radius: 20px; overflow: hidden; height: 420px;
+            border: 1px solid var(--border); position: relative;
+        }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ --- */
+        .legal-section {
+            background: var(--surface); padding: 80px 0; border-top: 1px solid var(--border);
+        }
+        .legal-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+        }
+        .legal-block h3 {
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--text-muted); margin-bottom: 18px; font-weight: 600;
+        }
+        .legal-block p, .legal-block li {
+            font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;
+            list-style: none;
+        }
+        .legal-block strong { color: var(--text); font-weight: 500; }
+
+        .disclaimer-box {
+            background: #fdf8f2; border: 1px solid #f0e4d4; border-radius: 12px;
+            padding: 25px 30px; margin-top: 50px; text-align: center;
+        }
+        .disclaimer-box p {
+            font-size: 0.95rem; color: #8a6e4b; font-weight: 500;
+        }
+
+        /* --- ПОДВАЛ --- */
+        .footer {
+            background: var(--text); color: #aaa; padding: 50px 0 30px;
+            font-size: 0.85rem;
+        }
+        .footer-inner {
+            display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
+        }
+        .footer-links { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+        .footer-links a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: #fff; }
+
+        /* --- АДАПТАЦИЯ --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .contacts-grid, .legal-grid { grid-template-columns: 1fr; }
+            .map-wrapper { height: 350px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { padding: 14px 20px; }
+            .nav { display: none; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 320px; justify-content: center; }
+            .section { padding: 70px 0; }
+            .section-header h2 { font-size: 2.1rem; }
+            .pricing-table th, .pricing-table td { padding: 14px 16px; font-size: 0.88rem; }
+            .pricing-table { display: block; overflow-x: auto; white-space: nowrap; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .social-row { justify-content: center; }
+            .footer-links { flex-direction: column; gap: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .feature-card { padding: 30px 20px; }
+        }
+
+        /* --- БАННЕР COOKIE --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border);
+            padding: 20px;
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+        }
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        .cookie-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .cookie-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .cookie-text a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .cookie-text a:hover {
+            border-bottom-color: var(--accent);
+        }
+        .cookie-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            white-space: nowrap;
+        }
+        .cookie-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Адаптив для баннера */
+        @media (max-width: 768px) {
+            .cookie-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .cookie-btn {
+                width: 100%;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+     <!-- БАННЕР COOKIE -->
+     <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-container">
+            <div class="cookie-text">
+                Мы используем файлы cookie для корректной работы сайта и анализа посещаемости. Продолжая пользоваться сайтом, вы соглашаетесь с нашей <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.
+            </div>
+            <button id="accept-cookie-btn" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">Laser<span>Glow</span></a>
+            <nav class="nav">
+                <a href="#about">О нас</a>
+                <a href="#services">Услуги и цены</a>
+                <a href="#gallery">Результаты</a>
+                <a href="#doctors">Специалисты</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <a href="tel:+74951234567" class="phone-top"><i class="fas fa-phone-alt" style="margin-right: 6px; color: var(--accent);"></i>+7 (495) 123-45-67</a>
+        </div>
+    </header>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Медицинский центр</span>
+            <h1>Гладкая кожа.<br><em>Уверенность</em> в каждом дне.</h1>
+            <p>Профессиональная лазерная эпиляция на диодном лазере последнего поколения. Безопасно, эффективно, с гарантией результата.</p>
+            <div class="hero-buttons">
+                <a href="https://t.me/laserglow_msk" target="_blank" class="btn btn-primary"><i class="fab fa-telegram-plane"></i> Написать в Telegram</a>
+                <a href="https://wa.me/74951234567" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Почему выбирают Laser Glow</h2>
+                <p>Мы сочетаем медицинский подход, современное оборудование и комфорт для каждого клиента.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Медицинская лицензия</h3>
+                    <p>Работаем в соответствии с лицензией на медицинскую деятельность. Все процедуры выполняются сертифицированными специалистами.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Безопасность и стерильность</h3>
+                    <p>Одноразовые расходные материалы, обработка оборудования по стандартам СанПиН. Ваше здоровье — приоритет.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-snowflake"></i></div>
+                    <h3>Комфорт без боли</h3>
+                    <p>Диодный лазер с системой охлаждения делает процедуру максимально комфортной даже для чувствительных зон.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Удобный график</h3>
+                    <p>Работаем ежедневно с 9:00 до 21:00. Без выходных и праздников. Запись по телефону или в мессенджерах.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ И ЦЕНЫ -->
+    <section id="services" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Услуги и цены</h2>
+                <p>Прозрачное ценообразование. Стоимость указана за одну процедуру.</p>
+            </div>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Зона</th>
+                        <th>Время</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Верхняя губа</td><td>5 мин</td><td class="price">1 500 ₽</td></tr>
+                    <tr><td>Подмышечные впадины</td><td>10 мин</td><td class="price">2 500 ₽</td></tr>
+                    <tr><td>Голени</td><td>20 мин</td><td class="price">3 500 ₽</td></tr>
+                    <tr><td>Бикини классическое</td><td>15 мин</td><td class="price">3 000 ₽</td></tr>
+                    <tr><td>Бикини глубокое</td><td>25 мин</td><td class="price">4 500 ₽</td></tr>
+                    <tr><td>Бёдра</td><td>25 мин</td><td class="price">4 000 ₽</td></tr>
+                    <tr><td>Спина</td><td>30 мин</td><td class="price">5 000 ₽</td></tr>
+                    <tr><td>Комплекс «Всё тело»</td><td>90 мин</td><td class="price">12 000 ₽</td></tr>
+                </tbody>
+            </table>
+            <p class="pricing-note">* Точная стоимость и план процедур определяются на консультации специалиста. Имеются противопоказания.</p>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Результаты</h2>
+                <p>Фотографии до и после процедур. Результат индивидуален и зависит от особенностей организма.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop" alt="Гладкая кожа ног" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop" alt="Уход за кожей" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&auto=format&fit=crop" alt="Процедура лазерной эпиляции" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?q=80&w=800&auto=format&fit=crop" alt="Результат гладкой кожи" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СПЕЦИАЛИСТЫ -->
+    <section id="doctors" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наши специалисты</h2>
+                <p>Медицинские работники с профильным образованием и опытом работы.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-photo"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=600&auto=format&fit=crop" alt="Врач-дерматовенеролог" loading="lazy"></div>
+                    <div class="doctor-info">
+                        <h3>Смирнова Елена Александровна</h3>
+                        <div class="role">Врач-дерматовенеролог, косметолог</div>
+                        <p>Высшее медицинское образование (РНИМУ им. Н.И. Пирогова). Стаж работы — 12 лет. Специализация: лазерные технологии в дерматологии.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-photo"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=600&auto=format&fit=crop" alt="Врач-косметолог" loading="lazy"></div>
+                    <div class="doctor-info">
+                        <h3>Кузнецова Анна Дмитриевна</h3>
+                        <div class="role">Врач-косметолог, лазерный терапевт</div>
+                        <p>Высшее медицинское образование (Первый МГМУ им. И.М. Сеченова). Стаж работы — 8 лет. Сертифицированный специалист по работе с диодными лазерами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ И КАРТА -->
+    <section id="contacts" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Контакты</h2>
+                <p>Свяжитесь с нами удобным способом или посетите центр.</p>
+            </div>
+            <div class="contacts-grid">
+                <div class="contact-block">
+                    <h3>Laser Glow</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="label">Адрес</div>
+                            <a href="https://yandex.ru/maps/?text=Москва, ул. Тверская, 15" target="_blank">г. Москва, ул. Тверская, д. 15, офис 3</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <div class="label">Телефон</div>
+                            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="label">Режим работы</div>
+                            <span>Ежедневно с 9:00 до 21:00</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="label">Email</div>
+                            <a href="mailto:info@laserglow.ru">info@laserglow.ru</a>
+                        </div>
+                    </div>
+                    <div class="social-row">
+                        <a href="https://t.me/laserglow_msk" target="_blank" aria-label="Telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://wa.me/74951234567" target="_blank" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://vk.com/laserglow" target="_blank" aria-label="ВКонтакте" title="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                <div class="map-wrapper">
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=37.610000%2C55.765000&z=16&pt=37.610000,55.765000,pm2rdm" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ -->
+    <section class="legal-section">
+        <div class="container">
+            <div class="legal-grid">
+                <div class="legal-block">
+                    <h3>Сведения об организации</h3>
+                    <p><strong>Наименование:</strong> ИП Смирнова Елена Александровна</p>
+                    <p><strong>ИНН:</strong> 770123456789</p>
+                    <p><strong>ОГРНИП:</strong> 320770000123456</p>
+                    <p><strong>Юридический адрес:</strong> 125009, г. Москва, ул. Тверская, д. 15, пом. 3</p>
+                    <p><strong>Фактический адрес:</strong> 125009, г. Москва, ул. Тверская, д. 15, офис 3</p>
+                </div>
+                <div class="legal-block">
+                    <h3>Лицензия и контроль</h3>
+                    <p><strong>Лицензия на медицинскую деятельность:</strong> № ЛО-77-01-123456 от 01.02.2024</p>
+                    <p><strong>Лицензирующий орган:</strong> Департамент здравоохранения города Москвы (125009, г. Москва, ул. Тверская, д. 15, стр. 1, тел. +7 (495) 777-77-77)</p>
+                    <p><strong>Территориальный орган Росздравнадзора:</strong> +7 (495) 555-55-55</p>
+                    <p><strong>Территориальный орган Роспотребнадзора:</strong> +7 (495) 444-44-44</p>
+                    <p><strong>Перечень работ (услуг):</strong> косметология (лазерная эпиляция)</p>
+                </div>
+            </div>
+            <div class="disclaimer-box">
+                <p><i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>Имеются противопоказания. Необходима консультация специалиста. Информация на сайте не является публичной офертой.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Laser Glow. Все права защищены.</p>
+            
+            <!-- ИСПРАВЛЕНО: Убран дубликат div -->
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="contraindications.html">Противопоказания</a>
+            </div>
+            
+            <p style="font-size: 0.75rem; opacity: 0.6;">Сайт носит информационный характер и не является публичной офертой.</p>
+        </div>
+    </footer>
+   
+   
+    <script>
+        // Логика баннера Cookie
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookie-btn');
+
+            // Проверяем, принимал ли пользователь уже cookie
+            if (!localStorage.getItem('laserglow_cookie_accepted')) {
+                // Показываем баннер с небольшой задержкой
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            // Обработка клика по кнопке "Принять"
+            acceptBtn.addEventListener('click', () => {
+                // Сохраняем выбор пользователя в localStorage
+                localStorage.setItem('laserglow_cookie_accepted', 'true');
+                // Скрываем баннер
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>

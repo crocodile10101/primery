@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности | Laser Glow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #2c2c2c;
+            --text-muted: #7a7a7a;
+            --accent: #b8956a;
+            --border: #e8e4df;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Шапка */
+        .header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(253, 252, 251, 0.9);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 20px; max-width: 1100px; margin: 0 auto;
+        }
+        .logo {
+            font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700;
+            color: var(--text); text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+        .back-link {
+            color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 8px; transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--accent); }
+
+        /* Контент */
+        .page-content { padding: 60px 0 80px; }
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h1 {
+            font-family: var(--font-heading); font-size: 2.5rem;
+            margin-bottom: 12px; line-height: 1.2;
+        }
+        .page-header p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .content-box {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 20px; padding: 50px 45px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .content-box h2 {
+            font-family: var(--font-heading); font-size: 1.4rem;
+            margin-top: 35px; margin-bottom: 15px; color: var(--text);
+        }
+        .content-box h2:first-child { margin-top: 0; }
+        .content-box p { margin-bottom: 15px; font-size: 0.95rem; color: #444; }
+        .content-box ul { margin: 15px 0 15px 20px; }
+        .content-box li { margin-bottom: 8px; font-size: 0.95rem; color: #444; }
+        .content-box strong { color: var(--text); font-weight: 600; }
+        .content-box a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .content-box a:hover { border-bottom-color: var(--accent); }
+
+        .info-block {
+            background: #fdf8f2; border-left: 3px solid var(--accent);
+            padding: 20px 25px; border-radius: 8px; margin: 20px 0;
+        }
+        .info-block p { margin-bottom: 0; font-size: 0.92rem; color: #6b5442; }
+
+        /* Подвал */
+        .footer {
+            background: var(--text); color: #aaa; padding: 30px 0;
+            font-size: 0.85rem; text-align: center;
+        }
+        .footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
+        .footer a:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .page-content { padding: 40px 0 60px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .content-box { padding: 30px 20px; border-radius: 15px; }
+            .content-box h2 { font-size: 1.2rem; }
+            .content-box p, .content-box li { font-size: 0.9rem; }
+            .logo { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Laser<span>Glow</span></a>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> На главную</a>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Политика конфиденциальности</h1>
+                <p>Дата последнего обновления: 1 января 2026 года</p>
+            </div>
+
+            <div class="content-box">
+                <h2>1. Общие положения</h2>
+                <p>Настоящая Политика конфиденциальности (далее — Политика) действует в отношении информации, которую сайт <strong>Laser Glow</strong> (далее — Сайт) может получить о Пользователе во время использования Сайта.</p>
+                <p>Оператором персональных данных является <strong>ИП Смирнова Елена Александровна</strong> (ИНН 770123456789, ОГРНИП 320770000123456, юридический адрес: 125009, г. Москва, ул. Тверская, д. 15, пом. 3).</p>
+
+                <div class="info-block">
+                    <p><i class="fas fa-info-circle" style="margin-right: 8px;"></i>Настоящий Сайт <strong>не содержит форм обратной связи, записи на приём или каких-либо полей для ввода персональных данных</strong>. Мы не собираем и не обрабатываем персональные данные Пользователей через Сайт.</p>
+                </div>
+
+                <h2>2. Какие данные мы обрабатываем</h2>
+                <p>Поскольку Сайт не содержит форм сбора данных, мы не запрашиваем и не храним:</p>
+                <ul>
+                    <li>фамилию, имя, отчество;</li>
+                    <li>номер телефона;</li>
+                    <li>адрес электронной почты;</li>
+                    <li>паспортные и иные документы;</li>
+                    <li>сведения о состоянии здоровья.</li>
+                </ul>
+                <p>При посещении Сайта автоматически может собираться <strong>обезличенная техническая информация</strong> с помощью систем веб-аналитики (Яндекс.Метрика, Google Analytics):</p>
+                <ul>
+                    <li>IP-адрес;</li>
+                    <li>тип устройства, браузера и операционной системы;</li>
+                    <li>данные о посещённых страницах и времени пребывания;</li>
+                    <li>файлы cookie и данные о местоположении на уровне города (по IP).</li>
+                </ul>
+                <p>Эти данные не позволяют идентифицировать конкретное лицо и используются исключительно в статистических целях — для улучшения работы Сайта.</p>
+
+                <h2>3. Правовые основания обработки</h2>
+                <p>Обработка обезличенных технических данных осуществляется на основании законного интереса Оператора (ст. 6 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных») в целях обеспечения функционирования и безопасности Сайта.</p>
+
+                <h2>4. Цели обработки</h2>
+                <ul>
+                    <li>обеспечение корректной работы Сайта;</li>
+                    <li>анализ посещаемости и улучшение пользовательского опыта;</li>
+                    <li>обеспечение информационной безопасности Сайта.</li>
+                </ul>
+
+                <h2>5. Файлы cookie</h2>
+                <p>Сайт использует файлы cookie для корректного отображения страниц и сбора статистики. Пользователь может отключить cookie в настройках своего браузера. При этом отдельные элементы Сайта могут работать некорректно.</p>
+
+                <h2>6. Передача данных третьим лицам</h2>
+                <p>Мы не передаём данные Пользователей третьим лицам, за исключением случаев:</p>
+                <ul>
+                    <li>использования сервисов веб-аналитики (Яндекс.Метрика, Google Analytics) в объёме обезличенных данных;</li>
+                    <li>требований законодательства РФ (по запросу уполномоченных государственных органов).</li>
+                </ul>
+
+                <h2>7. Трансграничная передача данных</h2>
+                <p>Трансграничная передача персональных данных Оператором не осуществляется.</p>
+
+                <h2>8. Хранение и защита данных</h2>
+                <p>Обезличенные технические данные хранятся в системах веб-аналитики в соответствии с их регламентами. Оператор принимает необходимые правовые, организационные и технические меры для защиты информации от неправомерного доступа.</p>
+
+                <h2>9. Права Пользователя</h2>
+                <p>В соответствии с 152-ФЗ Пользователь имеет право:</p>
+                <ul>
+                    <li>получать информацию, касающуюся обработки его персональных данных (при их наличии);</li>
+                    <li>требовать уточнения, блокирования или уничтожения данных;</li>
+                    <li>отозвать согласие на обработку;</li>
+                    <li>обращаться в Роскомнадзор или в суд для защиты своих прав.</li>
+                </ul>
+                <p>Поскольку Сайт не осуществляет сбор персональных данных, для реализации указанных прав вы можете направить запрос на <a href="mailto:info@laserglow.ru">info@laserglow.ru</a>.</p>
+
+                <h2>10. Изменение Политики</h2>
+                <p>Оператор вправе изменять настоящую Политику. Актуальная версия всегда размещена на данной странице. Продолжение использования Сайта после внесения изменений означает согласие с новой редакцией.</p>
+
+                <h2>11. Контакты</h2>
+                <p>По всем вопросам, связанным с обработкой данных, вы можете обратиться:</p>
+                <ul>
+                    <li>Email: <a href="mailto:info@laserglow.ru">info@laserglow.ru</a></li>
+                    <li>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+                    <li>Адрес: 125009, г. Москва, ул. Тверская, д. 15, пом. 3</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Laser Glow. Все права защищены.</p>
+            <p style="margin-top: 10px;">
+                <a href="index.html">Главная</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+                <a href="contraindications.html">Противопоказания</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
